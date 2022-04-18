@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import EmptyState from './components/EmptyState'
 
 import Input from './components/Input'
 import LoadingState from './components/LoadingState'
@@ -34,13 +35,15 @@ const App = () => {
       />
       {isLoading ? (
         <LoadingState />
-      ) : results ? (
+      ) : results?.length ? (
         <Items>
           {results.map((r) => (
             <Item {...r} key={r.id} />
           ))}
         </Items>
-      ) : null}
+      ) : (
+        <EmptyState />
+      )}
     </Container>
   )
 }
