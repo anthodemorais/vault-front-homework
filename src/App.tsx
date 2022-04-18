@@ -3,15 +3,9 @@ import styled from 'styled-components'
 
 import Input from './Input'
 import Item from './Item'
+import { Notif } from './types'
 
 const API = 'http://localhost:5000'
-
-type Notif = {
-  id: string
-  type: string
-  // FIXME we should *probably* not have this `any`
-  data: any
-}
 
 const App = () => {
   const [searchText, setSearchText] = useState('')
@@ -54,7 +48,7 @@ const App = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
 `
 
 export default App

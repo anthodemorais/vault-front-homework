@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import { NotifData } from './types'
 
-type Props = {
+type ItemProps = {
   id: string
   type: string
-  data: string
+  data: NotifData
 }
 
-const Item = ({ id, type, data }: Props) => {
+const Item = ({ id, type, data }: ItemProps) => {
   return (
     <StyledItem>
       <span>{type}</span>
