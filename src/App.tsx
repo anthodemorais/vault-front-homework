@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import Input from './Input'
+import Item from './Item'
 
 const API = 'http://localhost:5000'
 
@@ -24,6 +25,7 @@ const App = () => {
       const res = await fetch(`${API}/search?q=${searchText}`)
       const data = await res.json()
       setResults(data)
+      setLoading(false)
     }
     effect()
   }, [searchText, setLoading, setResults])
@@ -41,7 +43,7 @@ const App = () => {
         <div>
           {results.map((r) => (
             // TODO we must finalize this integration!! not very pretty like this
-            <Item>{JSON.stringify(r)}</Item>
+            <Item {...r} />
           ))}
         </div>
       ) : null}
@@ -53,10 +55,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-`
-
-const Item = styled.div`
-  border: 2px dashed red;
 `
 
 export default App
