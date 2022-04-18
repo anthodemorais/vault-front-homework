@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import Input from './components/Input'
+import LoadingState from './components/LoadingState'
 import Item from './components/NotificationItem/Item'
 import { Notif } from './types'
 
@@ -32,7 +33,7 @@ const App = () => {
         placeholder="Type to filter events"
       />
       {isLoading ? (
-        <div>{'Loading...'}</div>
+        <LoadingState />
       ) : results ? (
         <Items>
           {results.map((r) => (
