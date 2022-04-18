@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
-import Input from './Input'
-import Item from './Item'
+import Input from './components/Input'
+import Item from './components/NotificationItem/Item'
 import { Notif } from './types'
 
 const API = 'http://localhost:5000'
@@ -34,12 +34,11 @@ const App = () => {
       {isLoading ? (
         <div>{'Loading...'}</div>
       ) : results ? (
-        <div>
+        <Items>
           {results.map((r) => (
-            // TODO we must finalize this integration!! not very pretty like this
-            <Item {...r} />
+            <Item {...r} key={r.id} />
           ))}
-        </div>
+        </Items>
       ) : null}
     </Container>
   )
@@ -49,6 +48,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+`
+
+const Items = styled.div`
+  width: 100%;
 `
 
 export default App

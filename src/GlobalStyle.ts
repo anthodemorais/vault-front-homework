@@ -17,5 +17,6 @@ export default createGlobalStyle`
 
   body {
     padding: 24px;
+    font-family: "Helvetica Neue", sans-serif;
   }
 `
