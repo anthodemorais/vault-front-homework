@@ -13,4 +13,4 @@ jobs:
     - name: Install modules
       run: yarn add jest @testing-library/react
     - name: Run tests
-      run: yarn run jest
+      run: yarn run jest --passWithNoTests
